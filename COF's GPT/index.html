@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
+    <title>COF's ChatGPT</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/a11y-dark.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
+
+    <style>
+        body{
+            background-color: #1e1e1e;
+        }
+        h1, h2{
+            color: #fff;
+        }
+        .form-control{
+            font-size: 20px;
+        }
+        p{
+            font-size: 20px;
+            color: #fff;
+        }
+    </style>
+
+  </head>
+  <body>
+    <div class="container my-5">
+      <h1 class="text-center">COF's ChatGPT</h1>
+      <div class="row my-5">
+        <div class="col-md-12">
+          <form>
+            <div class="form-group">
+              <label for="prompt">Enter question:</label>
+              <input
+                type="text"
+                class="form-control"
+                id="prompt"
+                placeholder="Enter your prompt here"
+              />
+            </div>
+            <button id="submitBtn" type="submit" class="btn btn-primary">
+              Submit
+            </button>
+          </form>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <h2>Response:</h2>
+          <p id="response"></p>
+        </div>
+      </div>
+    </div>
+    <script
+      src="https://code.jquery.com/jquery-3.2.1.min.js"
+      integrity="sha384-xBuQ/xzmlsLoJpyjoggmTEz8OWUFM0/RC5BsqQBDX2v5cMvDHcMakNTNrHIW2I5f"
+      crossorigin="anonymous"
+    ></script>
+    <script>
+      $("form").submit(function (e) {
+        e.preventDefault();
+        var prompt = $("#prompt").val();
+        if (prompt === "") {
+          alert("Please enter a prompt");
+        } else {
+          $.post("/prompt", { prompt: prompt }, function (response) {
+            $("#response").text(response);
+          });
+        }
+      });
+    </script>
+  </body>
+</html>
