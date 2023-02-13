@@ -27,7 +27,7 @@ python app.py
 Ahmad Sofwan
 
 ## License
-This project is licensed under the [LICENSE_NAME] license.
+This project is licensed under the [MIT License].
 
 ## Acknowledgements
 - OpenAI API for providing the AI text generation service
