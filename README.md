@@ -9,7 +9,7 @@ Welcome to the Python Flask Server with OpenAI API project! This project provide
 ## How to run
 - Clone the repository:
 ```
-git clone https://github.com/[YOUR_GITHUB_USERNAME]/python-flask-openai.git
+git clone https://github.com/sofwan10/python-flask-openai.git
 ```
 - Install the required packages:
 ```
